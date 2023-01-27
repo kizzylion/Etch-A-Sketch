@@ -11,7 +11,8 @@ for (let i = 1; i <= 16; i++) {
         div.style.height = divHeight + 'px';
         div.style.display = 'inline-block';
         div.style.border = '1px solid red';
-        
+        div.addEventListener("mouseenter", hoverEffect)
+        div.addEventListener("mouseleave", endHoverEffect)
         container.appendChild(div);
         
     }
@@ -19,3 +20,12 @@ for (let i = 1; i <= 16; i++) {
     container.appendChild(br)
 }
 
+
+
+function hoverEffect(e){
+    e.target.style.backgroundColor = "grey"
+}
+
+function endHoverEffect(e){
+    e.target.style.backgroundColor = ""
+}
