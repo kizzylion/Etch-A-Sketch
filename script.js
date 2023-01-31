@@ -154,6 +154,7 @@ colorModeBtn.addEventListener("click", function(){
 
 
 
+
 eraseBtn.addEventListener("click", function(){
     let cell = document.querySelectorAll(".cell")
     if (eraseBtn.classList.contains("selected")){
