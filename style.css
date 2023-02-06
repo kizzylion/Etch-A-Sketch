@@ -159,7 +159,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 }
 .cell:hover{
-    background-color: grey;
+    /* background-color: grey; */
 }
 
 @media (max-width: 768px) {
@@ -179,8 +179,8 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     #layout{
-        width: 70vw;
-        height: 70vw;
+        width: 90vw;
+        height: 90vw;
     }
 
     .buttons{

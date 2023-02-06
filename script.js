@@ -11,7 +11,7 @@ let cellColor = ""
 
 
 
-//style the layout width, make it responsive to diffent screen size
+//style the layout width, make it responsive to different screen size
 // layout.style.width = "50vw"
 // layout.style.height = layout.style.width;
 // layout.style.border = "4px solid #808080";
@@ -155,6 +155,9 @@ colorModeBtn.addEventListener("click", function(){
 
 
 
+
+
+
 eraseBtn.addEventListener("click", function(){
     let cell = document.querySelectorAll(".cell")
     if (eraseBtn.classList.contains("selected")){
@@ -195,3 +198,54 @@ clearBtn.addEventListener("click", function(){
     });   
     
 })
+
+
+// touchesMove
+// The event listener iterates over all the cells, 
+//forEach loop, set the background color of a cell if-
+//the touch position is within the boundaries of the cell, using getBoundingClientRect().
+//the cells that are not touched will not have their background color changed.
+
+layout.addEventListener("touchmove", (event)=>{
+    event.preventDefault()
+    let cells=document.querySelectorAll(".cell");
+    
+    if (colorModeBtn.classList.contains("selected")){
+        cells.forEach((cell)=>{
+        
+            const rect = cell.getBoundingClientRect();
+            const x = event.touches[0].clientX;
+            const y = event.touches[0].clientY;
+            if (x >= rect.left && x<= rect.right && y >= rect.top && y <= rect.bottom){
+                cell.style.backgroundColor = colorPicker.value;
+            }
+        })        
+    }
+
+    if (randomColorBtn.classList.contains("selected")){
+        cells.forEach((cell)=>{
+        
+            const rect = cell.getBoundingClientRect();
+            const x = event.touches[0].clientX;
+            const y = event.touches[0].clientY;
+            if (x >= rect.left && x<= rect.right && y >= rect.top && y <= rect.bottom){
+                cell.style.backgroundColor = getRandomColor();
+            }
+        })        
+    }
+
+    if (eraseBtn.classList.contains("selected")){
+        cells.forEach((cell)=>{
+        
+            const rect = cell.getBoundingClientRect();
+            const x = event.touches[0].clientX;
+            const y = event.touches[0].clientY;
+            if (x >= rect.left && x<= rect.right && y >= rect.top && y <= rect.bottom){
+                cell.style.backgroundColor = "";
+            }
+        })        
+    }
+
+});
+
+
